@@ -1,0 +1,12 @@
+
+Mar05-20
+
+Trying to increase resolution of Mask-RCNN. Doubled the size of the convolution from 28x28 to 56x56. I followed
+
+https://github.com/matterport/Mask_RCNN/issues/635
+
+which amounted to basically copying and pasting the Conv2Dtranspose layer in maskrcnn's model.py.
+
+This apparently increases the memory load significantly. I was forced to go from a batch size of 2 to 1 per GPU.
+----
+
