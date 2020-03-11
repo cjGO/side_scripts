@@ -10,3 +10,8 @@ which amounted to basically copying and pasting the Conv2Dtranspose layer in mas
 This apparently increases the memory load significantly. I was forced to go from a batch size of 2 to 1 per GPU.
 ----
 
+Installing pycocotools on ubuntu
+
+-> failed to build wheel. Need to upgrade python3.6 to pip install python3.6-dev
+-> then pip install pycocotools ... works
+
