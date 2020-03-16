@@ -15,3 +15,11 @@ Installing pycocotools on ubuntu
 -> failed to build wheel. Need to upgrade python3.6 to pip install python3.6-dev
 -> then pip install pycocotools ... works
 
+----
+
+Docker stuff
+
+Running an nvidia docker image for deep learning.
+
+$sudo docker image ls
+$sudo docker run -it --rm -v /home/NAME/:/tf/ -p 8888:8888 tensorflow/tensorflow:2.0.1-gpu-jupyter bash
