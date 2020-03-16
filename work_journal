@@ -17,9 +17,13 @@ Installing pycocotools on ubuntu
 
 ----
 
-Docker stuff
-
-Running an nvidia docker image for deep learning.
+Docker stuff : Running an nvidia docker image for deep learning.
 
 $sudo docker image ls
+
+1-$nvidia-docker run --rm nvidia/cuda nvidia-smi
+$nvidia-docker run --rm <docker_container_name (eg tensorflow/tensorflow:gpu)> <command>
+2-$nvidia-docker run --rm nvidia/cuda nvcc --version
+    These commands will guarantee that the GPU has been detected within the container
+    
 $sudo docker run -it --rm -v /home/NAME/:/tf/ -p 8888:8888 tensorflow/tensorflow:2.0.1-gpu-jupyter bash
