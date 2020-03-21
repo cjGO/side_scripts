@@ -28,6 +28,9 @@ $nvidia-docker run --rm <docker_container_name (eg tensorflow/tensorflow:gpu)> <
     
 $sudo docker run -it --rm -v /home/NAME/:/tf/ -p 8888:8888 tensorflow/tensorflow:2.0.1-gpu-jupyter bash
 
+> Docker in Deep Learning environment.
+
+sudo docker run --gpus 1 -it -v /home/NAME/:/tf -p 8888:8888 tensorflow/tensorflow:2.0.1-gpu-jupyter
 
 ### Mask-RCNN - using Coco model required modification
     
