@@ -1,0 +1,42 @@
+
+
+##########BARE BONES#############
+
+1) Install Docker-CommunityEdition
+    >https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+2) Install NVIDIA-docker
+    >https://github.com/NVIDIA/nvidia-docker
+
+3) Install the docker image
+    >This may be provided in the form of an address in dockerhub by which you 'pull' the image
+        e.g. $docker pull taesungp/pytorch-cyclegan-and-pix2pix
+			#taesungp/pytorch-cyclegan-and-pix2pix is the imageName/tag on DockerHub
+
+    >Or it will be present in the form of a DockerFile in which case
+        $cd /path/to/docker/folder/with/Dockerfile
+        $docker build -t <NAME>:<TAG> .
+            -> e.g. $docker build -t maskrcnn:minimalsetup .
+
+4) Access your new docker container
+    >Depending on the docker image you used, it could automatically run a script, access the container's terminal, or open up jupyter notebook
+        $docker run -it -p 8097:8097  taesungp/pytorch-cyclegan-and-pix2pix
+
+
+
+##### HOW TO #####
+
+1) See which docker images are available on your machine
+    $docker image ls
+
+2) Mount a directory so you can use your data inside the docker container
+    >you must know the ROOT directory of your specific docker image, in this case, it is '/workspace/'
+        $docker run -it -p 8097:8097 -v /my/local/directory/on/sandbox/:/workspace/  taesungp/pytorch-cyclegan-and-pix2pix
+			#-v /my/local/directory/on/sandbox/:/workspace/	
+
+3) Connect multiple terminals to a single Docker container
+    $sudo docker run --gpus 1 -it -p 8097:8097 -v /home/burbank/ZDRIVE/DeepColor:/workspace/ cyclegan:fromrepo
+    $sudo docker run --gpus 1 -it -p 444:8097 -v /home/burbank/ZDRIVE/DeepColor:/workspace/ cyclegan:fromrepo
+    $sudo docker run -it -p 444:7777 -v /home/burbank/ZDRIVE/DeepColor:/workspace/ cyclegan:fromrepo
+
+
