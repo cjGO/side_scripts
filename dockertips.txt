@@ -40,3 +40,9 @@
     $sudo docker run -it -p 444:7777 -v /home/burbank/ZDRIVE/DeepColor:/workspace/ cyclegan:fromrepo
 
 
+
+#inside local host
+$sudo docker run --gpus 1 -it -p 8888:8888 -v /home/colt/:/tf/ tensorflow/tensorflow:2.0.1-gpu-jupyter bash
+#inside the container
+>jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+
