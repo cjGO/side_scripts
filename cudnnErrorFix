@@ -1,8 +1,36 @@
  ...Failed to get convolution algorithm. This is probably because cuDNN failed to initialize...
  
+ #TENSORFLOW 1.X
+ 
  ## Without this line. CudNN was not loaded in properly? Proper Cuda 10.1 + rest was installed on machine at the time.
 
 import tensorflow as tf
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 sess = tf.Session(config=config)
+
+
+#From a-mcego
+
+#TENSORFLOW 2.X
+
+-> I have been using the official (nightly)tensorflow nvidia-docker image. Everything appeared correct within the jupyter notebook.
+    nvidia-smi, nvcc -V, and test.isgpuavailable were all correct. To make it work, these lines were  required.
+    and perhaps some additionall lines, also shown below.
+
+#tf.test.is_gpu_available()
+gpus = tf.config.experimental.list_physical_devices('GPU')
+if gpus:
+    for gpu in gpus:
+        tf.config.experimental.set_memory_growth(gpu, True)
+        
+ ## ADDITIONAL, maybe necesarry lines
+ 
+ #Doesn't fix TF 2.x
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+        
+        
