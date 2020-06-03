@@ -46,3 +46,11 @@ $sudo docker run --gpus 1 -it -p 8888:8888 -v /home/colt/:/tf/ tensorflow/tensor
 #inside the container
 >jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
+
+4) Use ssh-tunnel to access a docker container on a remote server
+
+$sudo ssh -NL 999:localhost:8080 colt@172.64.23.104
+	# <999> is the port you ssh into (eg from local through port 999 to the remote workstation+server
+	# <localhost:8080> for example here, the docker container is running and 'exposed' on port 8080 of the workstation+server
+
+
