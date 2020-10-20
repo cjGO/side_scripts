@@ -1,0 +1,8 @@
+To see where space is being taken up in Ubuntu.
+
+$du -sh */
+
+will give the memory taken up by each folder in the given directory. This can be used to track down where large files are if your disk space
+is being all used up.
+
+/var/lib/docker was using up 800GB causing issues. which was discovered with this command.
