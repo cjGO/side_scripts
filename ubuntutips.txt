@@ -1,4 +1,4 @@
-To see where space is being taken up in Ubuntu.
+####To see where space is being taken up in Ubuntu.
 
 $du -sh */
 
@@ -6,3 +6,13 @@ will give the memory taken up by each folder in the given directory. This can be
 is being all used up.
 
 /var/lib/docker was using up 800GB causing issues. which was discovered with this command.
+
+
+
+#### go into each subdirectory and run a bash command
+
+e.g. $for dir in ~/coco-annotator/datasets/orchidfix/*; do (cd "$dir" && sudo find . -maxdepth 1 -type f -name '*.JPG' -exec exiftran -i -a {} \;); done
+
+->sudo find . -maxdepth 1 -type f -name '*.JPG' -exec exiftran -i -a {} \ ...... was the command I wanted to do in each subdirectory
+
+had an issue with an annotation tool, had to run this command so they were uploaded properly. But all my images were sorted into subdirectories.
