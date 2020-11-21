@@ -1,0 +1,19 @@
+FROM tensorflow/tensorflow:1.14.0-gpu-py3
+#Dockerfile and requirements.txt in directory where docker build is run
+COPY . /opt/app
+WORKDIR /opt/app
+
+RUN pip install --upgrade pip
+#Fixes import cv2 error
+RUN apt-get update ##[edited]
+RUN apt-get install 'ffmpeg'\
+    'libsm6'\ 
+    'libxext6'  -y
+RUN pip install opencv-python
+RUN pip install -r requirements.txt
+RUN pip install jupyterlab
+
+EXPOSE 8888
+
+ENTRYPOINT ["jupyter", "lab","--ip=0.0.0.0","--allow-root"]
+
