@@ -16,3 +16,8 @@ e.g. $for dir in ~/coco-annotator/datasets/orchidfix/*; do (cd "$dir" && sudo fi
 ->sudo find . -maxdepth 1 -type f -name '*.JPG' -exec exiftran -i -a {} \ ...... was the command I wanted to do in each subdirectory
 
 had an issue with an annotation tool, had to run this command so they were uploaded properly. But all my images were sorted into subdirectories.
+
+
+#### Fix an error in apt-get update due to bad keys or unsigned ppa
+
+https://stackoverflow.com/questions/10255082/installing-r-from-cran-ubuntu-repository-no-public-key-error
